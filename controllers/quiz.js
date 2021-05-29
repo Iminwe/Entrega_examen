@@ -233,3 +233,12 @@ exports.destroy = async (req, res, next) => {
             answer
         });
     };
+
+
+    // GET /quizzes/contarmisquizzes
+    exports.contarmisquizzes = async (req, res, next) => {
+
+        mios = await models.Quiz.count({where: {authorId: req.loginUser.id}});
+
+        res.render('quizzes/examen', {mios});
+    };

@@ -57,7 +57,8 @@ router.get(
       '/author',
       '/users',
       '/users/:id(\\d+)/quizzes',
-      '/quizzes'
+      '/quizzes',
+      '/quizzes/contarmisquizzes'
     ],
     saveBack);
 
@@ -150,6 +151,10 @@ router.delete('/quizzes/:quizId(\\d+)',
 
 router.get('/quizzes/:quizId(\\d+)/play',  quizController.play);
 router.get('/quizzes/:quizId(\\d+)/check', quizController.check);
+
+router.get ('/quizzes/contarmisquizzes',
+    sessionController.loginRequired,
+    quizController.contarmisquizzes);
 
 
 module.exports = router;
